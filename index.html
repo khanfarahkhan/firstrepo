@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>A demonstration of how to access a LI element</h3>
+
+<ul>
+  <li id="myLi">Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+  <li>Water</li>
+</ul>
+<button class="clickMe">clickMe</button>
+
+<script>
+    //// Changing the font to bold and red 
+let elements = document.querySelectorAll('li');
+elements.forEach(function(element){
+    element.addEventListener('click',function(e){
+        e.target.style.color = "red";
+        e.target.style.fontWeight = "bold";
+    })
+})
+
+//// creating an element and adding text to that element
+let ul = document.querySelector('ul');
+let button = document.querySelector('.clickMe');
+button.addEventListener('click',function(){
+    let li = document.createElement('li');
+    li.textContent = "Something add new";
+    ul.prepend(li)
+
+})
+
+///// event delegation
+let ulElement = document.querySelector('ul');
+ ulElement.addEventListener('click',(e)=>{
+    if(e.target.nodeName = 'LI'){
+        e.target.remove();
+    }
+ })
+
+</script>
+
+</body>
+</html>
